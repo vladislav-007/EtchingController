@@ -1,0 +1,69 @@
+// EtchingControllerHandlers.idl: источник IDL для EtchingControllerHandlers
+//
+
+// Этот файл будет обработан средством MIDL для
+// создания библиотеки типов (EtchingControllerHandlers.tlb) и кода маршалирования.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(71BD0F34-F225-4B7C-B448-B456557D6A80),
+	pointer_default(unique)
+]
+interface IPreview : IUnknown
+{
+};
+
+[
+	object,
+	uuid(6CE3E7EE-8736-419C-94DC-75A56AC4D284),
+	pointer_default(unique)
+]
+interface IThumbnail : IUnknown
+{
+};
+
+[
+	object,
+	uuid(D42B1488-9E02-4B0C-BF3A-13C074D6AEEC),
+	pointer_default(unique)
+]
+interface ISearch : IUnknown
+{
+};
+
+[
+	uuid(0366CC79-9557-4020-8FEA-893CA71B9050),
+	version(1.0),
+]
+library EtchingControllerHandlersLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(696D2EAD-0322-4486-8BA3-CC69CCDBDA68)
+	]
+	coclass Preview
+	{
+		[default] interface IPreviewHandler;
+	};
+	[
+		uuid(04DFC48B-4508-4E1C-AED1-71E8E2D21E4C)
+	]
+	coclass Thumbnail
+	{
+		[default] interface IThumbnailProvider;
+	};
+	[
+		uuid(141477D2-5781-460F-815F-F4A560310785)
+	]
+	coclass Search
+	{
+		[default] interface IFilter;
+	};
+};
+
+import "shobjidl.idl";
+import "thumbcache.idl";
+import "filter.idl";
